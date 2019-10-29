@@ -1,0 +1,55 @@
+<h1>Agregar </h1>
+<form [formGroup]="clienteForm" (ngSubmit)="save()">
+    <div [hidden]="true">
+        <input type="text" formControlName="id" name="id" id="id" >
+    </div>
+    
+    <label>
+        Nombres:
+        <input type="text" formControlName="nombre" name="nombre" id="nombre" required>
+        <div [hidden]="clienteForm.get('nombre').valid || 
+        clienteForm.get('nombre').pristine" class="alert alert-danger">
+            Titulo is required
+        </div>
+    </label>
+    <br>
+    <label>
+        Apellidos:
+        <input type="text" formControlName="apellido" name="apellido" id="apellido" required>
+    </label>
+    <br>    
+    <label>
+        Celular:
+        <input type="text" formControlName="telefono" name="telefono" id="telefono" required>
+    </label>
+    <br>
+    <label>
+        Domicilio Actual:
+        <input type="text" formControlName="direccion" name="direccion" id="direccion" required>
+    </label>
+    <br>
+    <label class = "form-check-label">
+        Sexo:
+        <br>    
+        <input type = "radio" formControlName="sexo" name = "sexo" id = "Sexo" value = "masculino" required>  
+        Masculino
+        <br>
+        <input type = "radio" formControlName="sexo" name = "sexo" id = "Sexo" value = "female" >  
+        Female          
+    </label> 
+
+    <br>
+   
+    <br>
+    <button type="submit" [disabled]="!clienteForm.valid" class="btn btn-primary">Save</button>
+    
+</form>
+
+
+<p>{{ clienteForm.value | json }}</p>
+<div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+
+
